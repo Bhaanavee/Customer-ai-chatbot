@@ -7,7 +7,7 @@ export default function Home() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: `Hi! I'm the PetVet support assistant. How can I help you today?`,
+      content: `Hi! I'm the Pawtopia support assistant. How can I help you today?`,
     },
   ]);
   const [message, setMessage] = useState('');
@@ -87,32 +87,35 @@ export default function Home() {
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      sx={{ backgroundColor: '#121212' }} // Spotify black background
     >
-      <br></br>
+
+    <br></br>
       <Box
-          sx={{
-            backgroundColor: "purple", // Solid dark green for header
-            borderRadius: "12px",
-            padding: "20px",
-            marginBottom: "20px",
-            textAlign: "center",
-            boxShadow: 3,
-          }}
-        >
-          <h1 style={{ color: "whitesmoke", marginBottom: "10px" }}>
-            PetVet AI Support
-          </h1>
+        sx={{
+          backgroundColor: '#005233', // Spotify neon green for header
+          borderRadius: "12px",
+          padding: "20px",
+          marginBottom: "20px",
+          textAlign: "center",
+          boxShadow: 4,
+        }}
+      >
         
-        </Box>
-      
+        <h1 style={{ color: "white", marginBottom: "10px" }}>
+          PAWTOPIA AI SUPPORT
+        </h1>
+      </Box>
+  
       <Stack
         direction='column'
         width="60vw"
         height="700px"
-        border="1px white"
+        border="1px solid #005233"
         overflow="auto"
         p={2}
         spacing={3}
+        sx={{ backgroundColor: '#181818' }} // Darker chat background
       >
         <Stack
           direction={'column'}
@@ -132,12 +135,14 @@ export default function Home() {
               <Box
                 bgcolor={
                   message.role === 'assistant'
-                    ? 'primary.main'
-                    : 'secondary.main'
+                    ? '#005233'  // Assistant messages in Spotify neon green
+                    : '#282828'  // User messages in dark grey
                 }
-                color="white"
+                color={message.role === 'assistant' ? 'white' : 'white'} // Text color
                 borderRadius={16}
                 p={3}
+                boxShadow={2}
+                sx={{ whiteSpace: 'pre-wrap' }}
               >
                 {message.content}
               </Box>
@@ -155,20 +160,59 @@ export default function Home() {
             disabled={isLoading}
             InputProps={{
               sx: {
-                color: 'white',  // Change this to your desired text color
+                color: 'white',  // Text color in Spotify neon green
               },
             }}
             InputLabelProps={{
               sx: {
-                color: '#16abff33',  // Change this to your desired label color
+                color: '#005233',  // Label color in Spotify neon green
               },
             }}
+            sx={{
+              bgcolor: '#282828',  // Input background in dark grey
+              borderRadius: '4px',
+              '& .MuiInputBase-root': {
+                '&:focus-within': {
+                  borderColor: '#005233',  // Green border color when focused
+                  boxShadow: `0 0 0 2px rgba(0, 82, 51, 0.3)`  // Optional glow effect
+                }
+              },
+              '& .MuiInputLabel-root': {
+                '&.Mui-focused': {
+                  color: '#005233',  // Green color for the label when focused
+                }
+              },
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': {
+                  borderColor: '#005233',  // Default border color in green
+                },
+                '&:hover fieldset': {
+                  borderColor: '#005233',  // Green border color on hover
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#005233',  // Green border color when focused
+                }
+              }
+            }}
           />
-          <Button variant="outlined" onClick={sendMessage} disabled={isLoading}>
+          <Button
+            variant="outlined"
+            onClick={sendMessage}
+            disabled={isLoading}
+            sx={{
+              color: '#005233',
+              borderColor: '#005233',
+              '&:hover': {
+                backgroundColor: '#005233',
+                color: '#121212',
+              },
+            }}
+          >
             SEND
           </Button>
         </Stack>
       </Stack>
     </Box>
   )
+  
 }
