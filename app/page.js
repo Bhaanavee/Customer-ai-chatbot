@@ -183,7 +183,7 @@ export default function Home() {
                 boxShadow={2}
                 sx={{ whiteSpace: 'pre-wrap' }}
               >
-                {message.content.replace(/\*/g, '')}
+                {message.content}
               </Box>
             </Box>
           ))}
