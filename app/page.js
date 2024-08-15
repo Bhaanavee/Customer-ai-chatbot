@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react'
 import { onAuthStateChanged,signOut } from 'firebase/auth';
 import { auth } from '../firebase.js';
 import SignIn from './SignIn.js'; // Assuming your SignIn component is in the app folder
+import './style.css';
 
 export default function Home() {
   const [messages, setMessages] = useState([
@@ -128,9 +129,9 @@ export default function Home() {
         }}
       >
         
-        <h2 style={{ color: "white", marginBottom: "10px" }}>
+        <h3 style={{ color: "white", marginBottom: "10px" }}>
           PAWTOPIA AI SUPPORT
-        </h2>
+        </h3>
       </Box>
       <Button variant="outlined" onClick={handleSignOut}
           sx={{
@@ -182,7 +183,7 @@ export default function Home() {
                 boxShadow={2}
                 sx={{ whiteSpace: 'pre-wrap' }}
               >
-                {message.content}
+                {message.content.replace(/\*/g, '')}
               </Box>
             </Box>
           ))}
