@@ -4,7 +4,7 @@ import { Box, Button, Stack, TextField } from '@mui/material'
 import { useState, useRef, useEffect } from 'react'
 import { onAuthStateChanged,signOut } from 'firebase/auth';
 import { auth } from '../firebase.js';
-import SignIn from './SignIn'; // Assuming your SignIn component is in the app folder
+import SignIn from './SignIn.js'; // Assuming your SignIn component is in the app folder
 
 export default function Home() {
   const [messages, setMessages] = useState([
