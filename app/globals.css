@@ -105,3 +105,78 @@ a {
     color-scheme: dark;
   }
 }
+
+@keyframes fadeInScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#box {
+  height: 300px;
+  width: 400px;
+ 
+  background-image: url("./assets/catndog1.jpeg");
+  background-size: cover;
+  border: 2px solid black;
+  animation: fadeInScaleUp 2s ease-in;
+}
+
+#box1 {
+  height: 300px;
+  width: 400px;
+ 
+  background-image: url("./assets/catndog1.jpeg");
+  background-size: cover;
+  margin-left: 20px;
+  border: 2px solid black;
+  animation: fadeInScaleUp 2s ease-in ; /* Delay start by 0.5s */
+}
+
+#boxx{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 25px;
+}
+@keyframes slideInFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#heading {
+  color: purple;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  animation: slideInFadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+p {
+  color: rgb(120, 63, 120);
+  font-size: 1rem;
+  margin-bottom: 25px;
+  animation: fadeIn 1s ease-out;
+}
